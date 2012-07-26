@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{cucumber_spinner}
-  s.version = "0.2.2"
+  s.version = "0.2.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Tobias Kraze"]
@@ -35,6 +35,11 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.5.0}
   s.summary = %q{Progress bar formatter for cucumber, shows failing scenarios immediately.}
+
+  # required for 'Then show me the page' functionality
+  # the 2.1.0 (or later) specifically due to the improvement for file schemes
+  # not requiring file://
+  s.add_dependency('launchy', [">= 2.1.0"])
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

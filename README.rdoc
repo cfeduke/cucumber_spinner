@@ -4,6 +4,24 @@ CucumberSpinner is a formatter for Cucumber. It allows you to show the progress
 of your running features as a progress bar. Failing features are outputted at
 once, not at the end of your feature run.
 
+== This Fork
+
+Works with Cucumber 1.2.1 (and probably later) by adding an eighth argument to 
+progress_bar_formatter#after_step_result (I didn't bother checking to see what this
+argument was for, it worked, I went with it).
+
+Also you'll need to declare a "show me the page" step even if you don't 
+call it (assuming you are going to use --format CucumberSpinner::ProgressBarFormatter 
+which is the point of this gem):
+
+    # features/steps/debugging_steps.rb
+    Then /^show me the page$/ do
+      save_and_open_page
+    end
+
+This fork has a hard dependency on launchy 2.1.0 due to the way it handles opening
+files on the file system (paths don't require the "file://" prefix).
+
 == Installation
 
 If you are using Bundler, add the gem to your +Gemfile+:
